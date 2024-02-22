@@ -14,12 +14,15 @@ LineItems:  It is a child for the above table and keeps track of all the individ
 <img width="1499" alt="image" src="https://github.com/mrudulabapat/TrackStatus/assets/35365848/ca40205b-47dd-492d-a0e9-697361a3483e">
 
 
-
+<br>
+<br>
 **PowerApp:**
+<br>
 Home Page: 
 
 <img width="1027" alt="image" src="https://github.com/mrudulabapat/TrackStatus/assets/35365848/3a20faef-2f1f-4460-9b54-49d8256385d1">
 
+<br>
 
 
 Items page:
@@ -27,6 +30,12 @@ Items page:
 When a particular item from home page is selected, it takes us to the items page and displays the parent order and also all the child items within the order on this page.
 
 It also displays the stage in which the order is currently in if there are actions required by the user.
+
+![image](https://github.com/mrudulabapat/TrackStatus/assets/35365848/55b8e424-4f06-457d-b016-332a07eebbeb)
+
+For the stage EIT approved, it checks whether all child items are approved and according will update the percentage of completion. Once it is 100 % complete only then it will enable the next stage to click.
+
+<br>
 
 <img width="1028" alt="image" src="https://github.com/mrudulabapat/TrackStatus/assets/35365848/e11af2fb-33db-4fd5-b4bc-605dd822c44f">
 

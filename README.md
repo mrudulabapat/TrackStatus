@@ -30,6 +30,9 @@ Items page:
 
 When a particular item from home page is selected, it takes us to the items page and displays the parent order and also all the child items within the order on this page.
 
+<img width="1029" alt="image" src="https://github.com/mrudulabapat/TrackStatus/assets/35365848/d144bdee-a38c-42fe-a4bc-025627a0f585">
+
+
 It also displays the stage in which the order is currently in if there are actions required by the user.
 
 ![image](https://github.com/mrudulabapat/TrackStatus/assets/35365848/55b8e424-4f06-457d-b016-332a07eebbeb)

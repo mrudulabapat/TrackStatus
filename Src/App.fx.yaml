@@ -1,0 +1,30 @@
+App As appinfo:
+    BackEnabled: =true
+    Formulas: |-
+        =statusTable= Table(
+            {key: 1, value: "Approved",     actiontext: "Cancel Request", waiting: "Approval Pending", donetext: "Approved"},
+            {key: 2, value: "Approved by TL", actiontext: "Request TL approval", waiting: "Approval by TL Pending", donetext: "Approved by TL"},
+            {key: 3, value: "Accepted",     actiontext: "Confirm Approval", waiting: "Approval by user pending", donetext: "Accepted by user" },
+            {key: 4, value: "EIT Approved",    actiontext: "EIT Approval", waiting: "Pending EIT Approval", donetext: "EIT Approved"}, 
+            {key: 5, value: "Received",    actiontext: "Receive", waiting: "Vendor", donetext: "Received"}
+        );
+        
+        /*statusTable = Table(
+            {key: 1, value: "Complete",     actiontext: "Cancel Request", waiting: "IT Approval", donetext: "IT Approved", icon: Icon.DocumentPDF},
+            {key: 2, value: "Accepted",     actiontext: "Accept/Reject Quote", waiting: "Dept Approval", donetext: "Dept Accepted", icon: Icon.CheckBadge},
+            {key: 3, value: "EIT",     actiontext: "Confirm EIT", waiting: "{{#/##}} EIT Approvals", donetext: "EIT Approved", icon: Icon.LogJournal},
+            {key: 4, value: "Approved",     actiontext: "Submit DPR", waiting: "Dept", donetext: "DPR Submitted", icon: Icon.LogJournal},
+            {key: 5, value: "Approved by DPR",     actiontext: "Approve DPR", waiting: "OPS Approval", donetext: "DPR Approved", icon: Icon.LogJournal},
+            {key: 6, value: "Purchased",    actiontext: "Purchasing", waiting: "Purchase", donetext: "Purchased", icon: Icon.Money}, 
+            {key: 7, value: "Received",    actiontext: "Receiving", waiting: "Vendor", donetext: "Received", icon: Icon.Transportation}
+        );*/
+    OnStart: =
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

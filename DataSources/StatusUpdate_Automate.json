@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "0784fb17-213f-454e-a4a0-d647e380a643",
+    "Name": "StatusUpdate_Automate",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "d263f765-4cd0-ee11-9079-002248322cfa"
+  }
+]

@@ -1,0 +1,131 @@
+{
+  "116167c0-820d-4a35-9b8d-3b47fd9b9fd9": {
+    "connectionRef": {
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "59abe475-9c18-425f-aaa2-2e8184b94058": {
+          "value": "shared_sharepointonline_1"
+        },
+        "workflowDisplayName": {
+          "value": "StatusUpdate_Automate"
+        },
+        "workflowEntityId": {
+          "value": "d263f765-4cd0-ee11-9079-002248322cfa"
+        },
+        "workflowName": {
+          "value": "0784fb17-213f-454e-a4a0-d647e380a643"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline_1": {
+          "value": "59abe475-9c18-425f-aaa2-2e8184b94058"
+        },
+        "workflowDisplayName": {
+          "value": "StatusUpdate_Automate"
+        },
+        "workflowEntityId": {
+          "value": "d263f765-4cd0-ee11-9079-002248322cfa"
+        },
+        "workflowName": {
+          "value": "0784fb17-213f-454e-a4a0-d647e380a643"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "StatusUpdate_Automate"
+    ],
+    "dependencies": {
+      "shared_sharepointonline_1": "59abe475-9c18-425f-aaa2-2e8184b94058"
+    },
+    "dependents": [],
+    "id": "116167c0-820d-4a35-9b8d-3b47fd9b9fd9"
+  },
+  "2cf6e02a-df7d-4a34-81bb-7b6c467154e6": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1664/1.0.1664.3477/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "59abe475-9c18-425f-aaa2-2e8184b94058": {
+          "value": "shared_sharepointonline"
+        },
+        "workflowDisplayName": {
+          "value": "GalleryDemo_Automate"
+        },
+        "workflowEntityId": {
+          "value": "d363f765-4cd0-ee11-9079-002248322cfa"
+        },
+        "workflowName": {
+          "value": "ab6a9622-d138-4c05-843f-e742bb94bec5"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_sharepointonline": {
+          "value": "59abe475-9c18-425f-aaa2-2e8184b94058"
+        },
+        "shared_sharepointonline_1": {
+          "value": "59abe475-9c18-425f-aaa2-2e8184b94058"
+        },
+        "workflowDisplayName": {
+          "value": "GalleryDemo_Automate"
+        },
+        "workflowEntityId": {
+          "value": "d363f765-4cd0-ee11-9079-002248322cfa"
+        },
+        "workflowName": {
+          "value": "ab6a9622-d138-4c05-843f-e742bb94bec5"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "GalleryDemo_Automate"
+    ],
+    "dependencies": {
+      "shared_sharepointonline": "59abe475-9c18-425f-aaa2-2e8184b94058",
+      "shared_sharepointonline_1": "59abe475-9c18-425f-aaa2-2e8184b94058"
+    },
+    "dependents": [],
+    "id": "2cf6e02a-df7d-4a34-81bb-7b6c467154e6"
+  },
+  "59abe475-9c18-425f-aaa2-2e8184b94058": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1676/1.0.1676.3617/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://csulb.sharepoint.com/sites/CHHS-IT-SA": {
+        "dataSources": {
+          "LineItems": {
+            "tableName": "3f99497c-9e02-4602-b61a-d02e846b84a1"
+          },
+          "ParentRequest": {
+            "tableName": "6e209de0-d7f4-46d6-85f4-2c53059f4ff4"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "LineItems",
+      "ParentRequest"
+    ],
+    "dependencies": {},
+    "dependents": [
+      "2cf6e02a-df7d-4a34-81bb-7b6c467154e6",
+      "116167c0-820d-4a35-9b8d-3b47fd9b9fd9"
+    ],
+    "id": "59abe475-9c18-425f-aaa2-2e8184b94058"
+  }
+}

@@ -1,0 +1,353 @@
+"Items As screen.'autoLayout_HeaderFooter_ver1.0'":
+    OnVisible: |
+        =Refresh(LineItems);
+        
+        Set(
+            currKey,
+            LookUp(
+                statusTable,
+                value = selectedRecord.Status.Value,
+                key
+            ) + 1
+        );
+        
+        Set(totalItems, Gallery4.AllItemsCount );
+        Set(progress, CountIf(Gallery4.AllItems,'Approved (Approved0)'=true));
+        
+        If(
+            currKey = 4,
+            Set(
+                progressLabel,
+                true
+            ),
+            Set(progressLabel,false);
+            
+        );
+
+    Container2 As groupContainer.manualLayoutContainer:
+        Height: =641
+        Width: =875
+        X: =20
+        Y: =110
+        ZIndex: =1
+
+        Container1 As groupContainer.manualLayoutContainer:
+            Height: =390
+            Width: =875
+            Y: =251
+            ZIndex: =6
+
+            "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+                BorderThickness: =2
+                DelayItemLoading: =true
+                Height: =365
+                Items: =Filter(LineItems, Title = selectedRecord.Title)
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =90
+                Width: =875
+                Y: =25
+                ZIndex: =1
+
+                Title8 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.OrderNum
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 86
+                    X: =16
+                    Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle7.Size * 1.8)) / 2
+                    ZIndex: =1
+
+                Subtitle7 As label:
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.'Approved (Approved0)'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Title8.Width
+                    X: =Title8.X
+                    Y: =Title8.Y + Title8.Height
+                    ZIndex: =2
+
+                Separator7 As rectangle:
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =4
+
+                Rectangle7 As rectangle:
+                    Height: =Parent.TemplateHeight - Separator7.Height
+                    OnSelect: =Select(Parent)
+                    Visible: =ThisItem.IsSelected
+                    Width: =4
+                    ZIndex: =5
+
+        FormViewer1 As formViewer:
+            BorderThickness: =2
+            DataSource: =ParentRequest
+            Height: =172
+            Item: =selectedRecord
+            NumberOfColumns: =2
+            Width: =867
+            X: =2
+            Y: =45
+            ZIndex: =7
+
+            Status_DataCard2 As typedDataCard.comboBoxViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Status"
+                Default: =ThisItem.Status
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@ParentRequest],DataSourceInfo.DisplayName,"Status")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                Required: =false
+                Update: =DataCardValue2.Selected
+                Width: =432
+                X: =1
+                Y: =0
+                ZIndex: =1
+
+                DataCardKey2 As label:
+                    AutoHeight: =true
+                    FontWeight: =FontWeight.Bold
+                    Height: =34
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue2 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayFields: =["Value"]
+                    DisplayMode: =Parent.DisplayMode
+                    Items: =Choices([@ParentRequest].Status)
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(ParentRequest.Status,DataCardValue2.SearchText)
+                    SelectMultiple: =false
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage1 As label:
+                    AutoHeight: =true
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue2.Y + DataCardValue2.Height
+                    ZIndex: =3
+
+                StarVisible1 As label:
+                    Align: =Align.Center
+                    Height: =DataCardKey2.Height
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey2.Y
+                    ZIndex: =4
+
+            Title_DataCard1 As typedDataCard.textualViewCard:
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Title"
+                Default: =ThisItem.Title
+                DisplayMode: =DisplayMode.View
+                DisplayName: =DataSourceInfo([@ParentRequest],DataSourceInfo.DisplayName,"Title")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =40
+                Required: =false
+                Width: =432
+                X: =0
+                Y: =0
+                ZIndex: =8
+
+                DataCardKey1 As label:
+                    AutoHeight: =true
+                    FontWeight: =FontWeight.Bold
+                    Height: =34
+                    PaddingBottom: =0
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue1 As label:
+                    AutoHeight: =true
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =27
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Default
+                    Width: =407
+                    X: =30
+                    Y: =58
+                    ZIndex: =2
+
+        Label5_1 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Size: =14
+            Text: ="Child Table"
+            Width: =269
+            X: =303
+            Y: =236
+            ZIndex: =8
+
+    Container2_1 As groupContainer.manualLayoutContainer:
+        Height: =641
+        Width: =453
+        X: =895
+        Y: =110
+        ZIndex: =2
+
+        GalleryStatus As gallery.galleryVertical:
+            DelayItemLoading: =true
+            Height: =606
+            Items: =statusTable
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =106
+            Width: =453
+            Y: =35
+            ZIndex: =1
+
+            StatusBtn As button:
+                BorderColor: =RGBA(255, 191, 0, 1)
+                BorderThickness: =5
+                DisabledBorderColor: =RGBA(255, 191, 0, 1)
+                DisplayMode: |-
+                    =If(
+                        currKey = 4 && currKey = ThisItem.key && progress = totalItems,
+                        DisplayMode.Disabled,
+                        If(
+                            currKey > ThisItem.key,
+                            DisplayMode.Disabled,
+                            If(
+                                currKey = ThisItem.key || currKey < ThisItem.key && progress = totalItems,
+                                DisplayMode.Edit,
+                                DisplayMode.View
+                            )
+                        )
+                    )
+                    
+                    //If(currKey = 4 && currKey < ThisItem.key && progress = totalItems, DisplayMode.Edit, DisplayMode.Disabled)
+                Fill: =RGBA(77, 77, 77, 1)
+                HoverFill: =RGBA(116, 116, 116, 1)
+                OnSelect: |-
+                    =StatusUpdate_Automate.Run(selectedRecord.Title, selectedRecord.Title);
+                    //GalleryDemo_Automate.Run(selectedRecord.Title);
+                    Refresh(LineItems);
+                PaddingLeft: =15
+                Text: =If(Self.DisplayMode=DisplayMode.Disabled, ThisItem.donetext, ThisItem.actiontext)
+                Tooltip: ="When all items are approved only then the item status can move to EIT approval"
+                Width: =234
+                X: =141
+                Y: =24
+                ZIndex: =1
+
+            KeyText As text:
+                Align: =Align.Center
+                BorderColor: =RGBA(255, 191, 0, 1)
+                BorderThickness: =5
+                Color: =RGBA(77, 77, 77, 1)
+                Default: =ThisItem.key
+                FontWeight: =FontWeight.Bold
+                Height: =50
+                OnSelect: =Select(Parent)
+                PaddingRight: =12
+                RadiusBottomLeft: =50
+                RadiusBottomRight: =50
+                RadiusTopLeft: =50
+                RadiusTopRight: =50
+                Width: =60
+                X: =81
+                Y: =19
+                ZIndex: =2
+
+            BgButton As button:
+                DisplayMode: =DisplayMode.View
+                Fill: =Color.LightGray
+                Height: =28
+                OnSelect: =Select(Parent)
+                Text: =If(progress = 0 , "0 %" ,"")
+                Visible: =If(ThisItem.key=4 && progressLabel, true, false)
+                Width: =StatusBtn.Width
+                X: =141
+                Y: =69
+                ZIndex: =3
+
+            ProgressButton As button:
+                BorderThickness: =0
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 191, 0, 1)
+                Height: =28
+                HoverBorderColor: =
+                HoverFill: =
+                OnSelect: =Select(Parent)
+                Text: =$"{progress/totalItems * 100}%"
+                Visible: =If(ThisItem.key=4 && progressLabel, true, false)
+                Width: =BgButton.Width/totalItems*progress
+                X: =141
+                Y: =69
+                ZIndex: =4
+
+    Label5 As label:
+        Align: =Align.Center
+        FontWeight: =FontWeight.Bold
+        Size: =14
+        Text: ="Parent Table"
+        Width: =269
+        X: =323
+        Y: =110
+        ZIndex: =3
+
+    Title6_1 As label:
+        Align: =Align.Center
+        Fill: =RGBA(77, 77, 77, 1)
+        Height: =64
+        PaddingRight: =10
+        Text: ="Items Page"
+        Width: =1366
+        ZIndex: =4
+
+    Button1 As button:
+        BorderColor: =ColorFade(Self.Fill, -40%)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(241, 244, 249, 1)
+        Fill: =RGBA(237, 237, 237, 1)
+        Height: =36
+        HoverFill: =Color.Gray
+        OnSelect: =Back()
+        Text: ="Back"
+        Width: =88
+        X: =1260
+        Y: =14
+        ZIndex: =5
+

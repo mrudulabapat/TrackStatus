@@ -43,9 +43,10 @@ For the stage EIT approved, it checks whether all child items are approved and a
 
 <img width="1028" alt="image" src="https://github.com/mrudulabapat/TrackStatus/assets/35365848/e11af2fb-33db-4fd5-b4bc-605dd822c44f">
 
+<br>
 
-
-
+**For setting up the app go to this page:**
+https://github.com/mrudulabapat/TrackStatus/tree/main/Tables
 
 
 
